@@ -1,0 +1,192 @@
+body {
+  background-color: aqua;
+}
+
+.head {
+  display: grid;
+  margin: 0px 25%;
+  padding: 0;
+  text-align: center;
+  width: 50%;
+  height: fit-content;
+  font-size: 40px;
+}
+.grid {
+  display: grid;
+  margin: auto;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+  width: fit-content;
+}
+.piece {
+  max-width: 75px;
+  max-height: 75px;
+  margin: 25px;
+}
+.king {
+  max-width: 110px;
+  max-height: 110px;
+  margin: 25px;
+}
+.redSquare {
+  cursor: pointer;
+  background-color: red;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blackSquare {
+  background-color: black;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectedSquare {
+  background-color: darkred;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.selectedPiece {
+  background-color: red;
+  transform: scale(1.2);
+  border-radius: 25px;
+  font-size: 30px;
+  height: 50px;
+  width: 50px;
+  padding: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.modalBackground {
+  position: fixed;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background-color: aqua;
+  z-index: 1001;
+}
+
+.formBox {
+  display: flex;
+  width: 70%;
+  margin: 20px;
+  flex-flow: column nowrap;
+  margin-left: 25%;
+  margin-right: 25%;
+  background-color: red;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  width: 50%;
+  /* height: 50%; */
+}
+
+label {
+  padding: 10px;
+  font-family:'Montserrat',sans-serif;
+}
+
+input {
+  width: 75%;
+  margin-left: 10%;
+  padding: 10px;
+  border-radius: 25px;
+  border:0;
+  font-family:'Montserrat',sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 5%;
+  border: 2px solid aqua;
+  border-radius: 6px;
+  color: white;
+  background: black;
+  cursor: pointer;
+  transition: all .3s;
+  width: 40%;
+}
+
+.inActive {
+  padding: 8px 12px;
+  margin: 5%;
+  border: 2px solid aqua;
+  border-radius: 6px;
+  color: white;
+  background: black;
+  cursor: no-drop;
+  transition: all .3s;
+  width: 40%;
+}
+
+.inActive.active {
+  cursor: pointer;
+  transition: all .3s;
+}
+
+button:hover {
+  background: aqua;
+  border: 2px solid black;
+  color: black;
+}
+
+.altButton {
+  margin: 2px 25%;
+  width: 50%;
+}
+
+.message {
+  background-color: deepskyblue;
+  margin: 2px 25%;
+  width: 50%;
+}
+
+.buttonContainer {
+  margin: 0px 25%;
+  width: 50%;
+}
+
+.buttonGrid {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+}
+
+.save {
+  float:right;
+  padding:8px 12px;
+  margin: 10px 0%;
+  border:2px solid aqua;
+  border-radius: 6px;
+  color: white;
+  background: black;
+  cursor:pointer;
+  transition:all .3s;
+  width: 50%;
+  border:2px solid red;
+}
+
+.save:hover {
+  background:red;
+  border: 2px solid black;
+  color: black;
+}

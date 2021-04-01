@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lan="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Authentication</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div>
+      <div class="modalBackground">
+        <div class="head"><h2>Authentication</h2></div>
+        <form class="formBox" action="/login" method="POST">
+          <h2>Login</h2>
+          <div class="message">
+            <% if (messages.error) { %>
+              <%= messages.error %>
+            <% } %>
+          </div>
+          <label for="email">Email: </label>
+          <input type="email" id="email" name="email" required>
+          <label for="password">Password: </label>
+          <input type="password" id="password" name="password" required>
+          <div class="buttonGrid">
+            <button type="submit">Login</button>
+            <button onclick="window.location.href='/register'">New User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

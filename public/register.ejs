@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lan="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Authentication</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div>
+      <div class="modalBackground">
+        <div class="head"><h2>Authentication</h2></div>
+        <form name="formBox" class="formBox" action="/register" method="POST">
+          <h2>Register User</h2>
+          <div class="message"></div>
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" required>
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" required>
+          <label for="email">Email:</label>
+          <input onkeyup="validateEmail()" type="email" id="email" name="email" required>
+          <label for="userName">Username:</label>
+          <input onkeyup="validateUserName()" disabled class="inActiveInput" type="text" id="userName" name="userName" required>
+          <label for="password">Password:</label>
+          <input onkeyup="validatePassword()" disabled class="inActiveInput" type="password" id="password" name="password" required>
+          <label for="confirm">Confirm Password:</label>
+          <input onkeyup="validateConfirm()" disabled class="inActiveInput" type="password" id="confirm" name="confirm" required>
+          <div class="buttonGrid">
+            <button disabled class="inActive" type="submit">Register User</button>
+            <button class="active" onclick="window.location.href='/login'">Back to Login</button>
+          </div>
+        </form>
+        <script>
+          const validateEmail = () => {
+            const email = document.formBox.email.value;
+            const at = email.indexOf('@');
+            const dot = email.indexOf('.');
+            if (at < 1) {
+              document.getElementsByClassName('message')[0].innerText = 'Not a valid email address!';
+              document.getElementsByClassName('inActiveInput')[0].setAttribute('disabled', '');
+            } else if (dot < at + 2) {
+              document.getElementsByClassName('message')[0].innerText = 'Not a valid email address!';
+              document.getElementsByClassName('inActiveInput')[0].setAttribute('disabled', '');
+            } else if (dot + 2 >= email.length) {
+              document.getElementsByClassName('message')[0].innerText = 'Not a valid email address!';
+              document.getElementsByClassName('inActiveInput')[0].setAttribute('disabled', '');
+            } else {
+              document.getElementsByClassName('message')[0].innerText = 'Email address is valid!';
+              document.getElementsByClassName('inActiveInput')[0].removeAttribute('disabled', '');
+            }
+          }
+          const validateUserName = () => {
+            if (document.formBox.userName.value.length >= 8) {
+              document.getElementsByClassName('message')[0].innerText = 'Username length is good!';
+              document.getElementsByClassName('inActiveInput')[1].removeAttribute('disabled', '');
+            } else {
+              document.getElementsByClassName('message')[0].innerText = 'Username needs to be at least 8 caharacters long!';
+              document.getElementsByClassName('inActiveInput')[1].setAttribute('disabled', '');
+            }
+          }
+          const validatePassword = () => {
+            if (document.formBox.password.value.length >= 8) {
+              document.getElementsByClassName('message')[0].innerText = 'Password length is good!';
+              document.getElementsByClassName('inActiveInput')[2].removeAttribute('disabled', '');
+            } else {
+              document.getElementsByClassName('message')[0].innerText = 'Password needs to be at least 8 caharacters long!';
+              document.getElementsByClassName('inActiveInput')[2].setAttribute('disabled', '');
+            }
+          }
+          const validateConfirm = () => {
+            if (document.formBox.confirm.value === document.formBox.password.value) {
+              document.getElementsByClassName('message')[0].innerText = 'Passwords match!'
+              document.getElementsByClassName('inActive')[0].removeAttribute('disabled', '');
+              document.getElementsByClassName('inActive')[0].classList.add('active');
+            } else {
+              document.getElementsByClassName('message')[0].innerText = 'Passwords don\'t match!'
+              document.getElementsByClassName('inActive')[0].setAttribute('disabled', '');
+              document.getElementsByClassName('inActive')[0].classList.remove('active');
+            }
+          }
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
